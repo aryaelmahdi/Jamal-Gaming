@@ -102,7 +102,6 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("username", username);
                 session.setAttribute("nama", name);
                 session.setAttribute("isLoggedIn", true);
-//                session.setAttribute("success", "Hello, welcome " + name + "!");
                 
                 response.sendRedirect("home");
             }
