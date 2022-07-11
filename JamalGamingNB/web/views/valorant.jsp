@@ -45,65 +45,65 @@
             <h2>Pilihan Anda</h2>
             <div class="col-12 ">
                 <div class="row">
-                    <div class="col-3 border-pilihan" id="vpx">
-                        <input type="radio" name="Product" value="100 Valorant Points" id="x" onclick="clkvp()" required>
+                    <div class="col-3 border-pilihan" id="vpx">                    
                         <label for="x">
                             <img src="public/assets/images/VP3.png">
                             <p>100VP 10k</p>
-                        </label>     
+                        </label>
+                        <input type="radio" name="Product" value="100 Valorant Points" id="x" onclick="clkvp()" required>
                     </div>
                     <div class="col-3 border-pilihan" id="vps" >
-                        <input type="radio" name="Product" value="250 Valorant Points" id="x" onclick="clkvp1()">
                         <label for="x">
                             <img src="public/assets/images/VP3.png">
                             <p>250VP 25k</p>
                         </label> 
+                        <input type="radio" name="Product" value="250 Valorant Points" id="x" onclick="clkvp1()" required>
                     </div>
                     <div class="col-3 border-pilihan" id="vpy" >
-                         <input type="radio" name="Product" value="500 Valorant Points" id="x" onclick="clkvp2()">
                         <label for="x">
                             <img src="public/assets/images/VP3.png">
                             <p>500VP 50k</p>
                         </label> 
+                        <input type="radio" name="Product" value="500 Valorant Points" id="x" onclick="clkvp2()">
                     </div>
                     <div class="col-3 border-pilihan" id="vpz" >
-                         <input type="radio" name="Product" value="780 Valorant Points" id="x" onclick="clkvp3()">
                         <label for="x">
                             <img src="public/assets/images/VP3.png">
                             <p>780VP 78k</p>
                         </label> 
+                        <input type="radio" name="Product" value="780 Valorant Points" id="x" onclick="clkvp3()">
                     </div>
                 </div>
             </div>
             <div class="col-12">
                 <div class="row">
                     <div class="col-3 border-pilihan" id="vpx1" >
-                        <input type="radio" name="Product" value="1500 Valorant Points" id="x" onclick="clkvp4()">
                         <label for="x">
                             <img src="public/assets/images/VP3.png">
                             <p>1500VP 150K</p>
+                            <input type="radio" name="Product" value="1500 Valorant Points" id="x" onclick="clkvp4()">
                         </label> 
                     </div>
                     <div class="col-3 border-pilihan" id="vps1" >
-                        <input type="radio" name="Product" value="2100 Valorant Points" id="x" onclick="clkvp5()">
                         <label for="x">
                             <img src="public/assets/images/VP3.png">
                             <p>2100VP 210K</p>
                         </label> 
+                        <input type="radio" name="Product" value="2100 Valorant Points" id="x" onclick="clkvp5()">
                     </div>
                     <div class="col-3 border-pilihan" id="vpy1" >
-                        <input type="radio" name="Product" value="2700 Valorant Points" id="x" onclick="clkvp6()">
                         <label for="x">
                             <img src="public/assets/images/VP3.png">
                             <p>2700VP 270K</p>
                         </label> 
+                        <input type="radio" name="Product" value="2700 Valorant Points" id="x" onclick="clkvp6()">
                     </div>
                     <div class="col-3 border-pilihan" id="vpz1" >
-                        <input type="radio" name="Product" value="3500 Valorant Points" id="x" onclick="clkvp7()">
                         <label for="x">
                             <img src="public/assets/images/VP3.png">
                             <p>3500VP 350K</p>
                         </label> 
+                        <input type="radio" name="Product" value="3500 Valorant Points" id="x" onclick="clkvp7()">
                     </div>
                 </div>
             </div>
@@ -116,18 +116,18 @@
             <div class="col-12">
                 <div class="col-6">
                     <div class="row wkwk" id="bcaa" >
-                        <input type="radio" name="pay" value="bca" id="b" onclick="bca()" required>
                         <label for="b">
                             <img src="public/assets/images/BCA3.png">
                         </label>
+                        <input type="radio" name="pay" value="bca" id="b" onclick="bca()" required>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="row wkwk" id="gopayy" >
-                        <input type="radio" name="pay" value="gopay" id="b" onclick="gopay()">
                         <label for="b">
                             <img src="public/assets/images/Gopay1.png">
                         </label>
+                        <input type="radio" name="pay" value="gopay" id="b" onclick="gopay()">
                     </div>
                 </div>
                 <button type="submit" class="input-submit" onclick="sbmt()">submit</button>
