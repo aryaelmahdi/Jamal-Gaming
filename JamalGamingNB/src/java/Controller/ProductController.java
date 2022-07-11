@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Helper.StringHelper;
 import Model.ProductModel;
 import Query.ProductQuery;
 import java.sql.ResultSet;
@@ -31,6 +32,23 @@ public class ProductController extends BaseController {
         map.put(3, model.getProduct());
         map.put(4, model.getPay());
         String sql = this.query.create_trans;
+        return this.preparedStatement(map, sql);
+    }
+    
+    public ResultSet getByName(String name) {
+        String sql = this.query.create_trans;
+        
+        Map<Integer, Object> map = new HashMap<>();
+        map.put(1, StringHelper.parseLikeQuery(name));
+        
+        return this.getWithParameter(map, sql);
+    }
+    
+    public boolean delete(String id) throws ParseException {
+        Map<Integer, Object> map = new HashMap<>();
+        map.put(1, id);
+        
+        String sql = this.query.delete;
         return this.preparedStatement(map, sql);
     }
 }

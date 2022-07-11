@@ -20,10 +20,10 @@
     <div class="col-12" id="data2">
         <div class="row background-data">
             <h2>Masukkan Data Anda</h2>
-            <form>
+            <form method="POST" action="login">
                 <div class="col-12 ">
                 <p>Username</p>
-                <input type="text" class="input-submit" id="nama" placeholder="Username" name="username" onkeydown="return /[a-z]/i.test(event.key)" required>
+                <input type="text" class="input-submit" id="nama" placeholder="Username" name="user" required>
             </div>
             <div class="col-12">
                 <p>Password</p>

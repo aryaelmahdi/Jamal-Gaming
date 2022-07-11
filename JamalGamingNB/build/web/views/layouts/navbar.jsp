@@ -13,6 +13,7 @@
                 <p><a href="#uwuw">GAMES</a></p>
                 <p><a href="#about">ABOUT</a></p>
                 <p><a href="#copyright">CONTACT</a></p>
+                <p><a href="history">HISTORY</a></p>
             </ul>
         </nav>
     </header>

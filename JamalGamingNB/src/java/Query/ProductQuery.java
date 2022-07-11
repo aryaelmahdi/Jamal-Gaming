@@ -12,4 +12,7 @@ package Query;
 public class ProductQuery {
     public String create_trans = "INSERT INTO transaction (Username, UserID, " + 
             "Product, Payment) VALUES (?, ?, ?, ?)";
+    public String update = "UPDATE product SET name = ?, product_type = ?, "
+            + "stock = ?, price = ?, expired = ? WHERE id = ?";
+    public String delete = "DELETE FROM product WHERE id = ?";
 }

@@ -4,11 +4,8 @@
  */
 package Servlet;
 
-import Controller.UserController;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Wikon3
  */
-public class LoginServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,15 +30,20 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             HttpSession session = request.getSession(true);
-            if (session.getAttribute("isLoggedIn") != null) {
-                response.sendRedirect("home");
+            if (session.getAttribute("isLoggedIn") == null) {
+                response.sendRedirect("login");
                 return;
             }
-           RequestDispatcher dispatch = request.getRequestDispatcher("/views/login.jsp");
-            dispatch.forward(request, response);
+
+            session.removeAttribute("name");
+            session.removeAttribute("username");
+            session.removeAttribute("isLoggedIn");
+            session.invalidate();
+            
+            response.sendRedirect("login");
         }
     }
 
@@ -71,47 +73,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            String user = request.getParameter("user");
-            String password = request.getParameter("password");
-
-            UserController uc = new UserController();
-            ResultSet rs = uc.getByUsername(user);
-
-            HttpSession session = request.getSession(true);
-            session.removeAttribute("errors");
-            
-            
-            if (rs.isBeforeFirst()) {
-                rs.first();
-                System.out.println(rs.first());
-
-                String dataPassword = rs.getString("password");
-                Boolean isValid = password.equals(dataPassword);
-                
-                if(!isValid) {
-                    session.setAttribute("errors", "user or password is invalid!");
-                    response.sendRedirect("login");   
-                    return;
-                }
-                
-                String name = rs.getString("nama");
-                System.out.println(name);
-                session.setAttribute("user", user);
-                session.setAttribute("nama", name);
-                session.setAttribute("isLoggedIn", true);
-//                session.setAttribute("success", "Hello, welcome " + name + "!");
-                
-                response.sendRedirect("home");
-            }
-            else {
-                session.setAttribute("errors", "User or password is invalid!");
-                response.sendRedirect("login");
-            }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        processRequest(request, response);
     }
 
     /**
