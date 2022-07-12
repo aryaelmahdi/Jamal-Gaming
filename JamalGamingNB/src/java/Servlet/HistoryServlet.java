@@ -1,13 +1,15 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Servlet;
 
+import Config.DBConnection;
 import Controller.ProductController;
-import Model.ProductModel;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Wikon3
  */
-public class ValorantServlet extends HttpServlet {
+public class HistoryServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,12 +31,17 @@ public class ValorantServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            RequestDispatcher dispatch = request.getRequestDispatcher("/views/valorant.jsp");
+           DBConnection conn = new DBConnection();
+            System.out.println(conn.open());
+            System.out.println("1");
+            
+            /* TODO output your page here. You may use following sample code. */
+            RequestDispatcher dispatch = request.getRequestDispatcher("/views/history.jsp");
             dispatch.forward(request, response);
         }
     }
@@ -51,6 +58,9 @@ public class ValorantServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ProductController model = new ProductController();
+        ResultSet rs = model.get();
+        request.setAttribute("rs", rs);
         processRequest(request, response);
     }
 
@@ -65,39 +75,7 @@ public class ValorantServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            System.out.println("a");
-            String nama = (String)request.getSession().getAttribute("nama");
-            System.out.println("b");
-            String username = request.getParameter("nama");
-            System.out.println("c");
-            String uid = request.getParameter("uid");
-            System.out.println("d");
-            String product = request.getParameter("Product");
-            String pay = request.getParameter("pay");
-
-            ProductModel model = new ProductModel();
-            model.setUsername(username);
-            model.setUid(uid);
-            model.setProduct(product);
-            model.setPay(pay);
-            
-            ProductController pc = new ProductController();
-            Boolean res = false;
-            System.out.println("e");
-            if (nama!=null) {
-                res = pc.create(model, nama);
-            } else {
-                res = pc.create(model);
-            }
-            
-            if (res) {
-                response.sendRedirect("success");
-            }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        processRequest(request, response);
     }
 
     /**

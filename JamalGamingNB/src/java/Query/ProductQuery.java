@@ -10,9 +10,13 @@ package Query;
  * @author LENOVO
  */
 public class ProductQuery {
-    public String create_trans = "INSERT INTO transaction (Username, UserID, " + 
+    public String create_trans = "INSERT INTO transaction (nama, IGN, UserID, " + 
+            "Product, Payment) VALUES (?, ?, ?, ?, ?)";
+    public String create_trans1 = "INSERT INTO transaction (IGN, UserID, " + 
             "Product, Payment) VALUES (?, ?, ?, ?)";
-    public String update = "UPDATE product SET name = ?, product_type = ?, "
-            + "stock = ?, price = ?, expired = ? WHERE id = ?";
-    public String delete = "DELETE FROM product WHERE id = ?";
+    public String delete = "DELETE FROM transaction WHERE UserID = ?";
+    public String update = "UPDATE transaction SET Payment = ?"
+            + "Product = ? WHERE UserID = ?";
+    public String getByName = "SELECT * FROM transaction where nama = ?";
+    public String get = "SELECT IGN, UserID, Payment, Product FROM transaction where nama = ?";
 }

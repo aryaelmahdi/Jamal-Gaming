@@ -1,9 +1,3 @@
-<%-- 
-    Document   : history
-    Created on : Jul 11, 2022, 4:50:58 PM
-    Author     : LENOVO
---%>
-
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Controller.ProductController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,66 +7,64 @@
         <jsp:include page='layouts/headgame.jsp'>
             <jsp:param name="title" value="History" />
         </jsp:include>
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     </head>
 <body>
         <jsp:include page='layouts/navbarhistory.jsp'></jsp:include>
-        <%
-            String name = request.getParameter("nama");
-            if (name == null || name.equals("")) {
-                response.sendRedirect("history");
-            }
-
+ <%
             ProductController pc = new ProductController();
-            ResultSet rs = pc.getByName(name);
-            
-            System.out.println(rs);
-            
-            if (!rs.isBeforeFirst()) {
-                response.sendRedirect("history");
+            ResultSet rs;
+            String nama = (String)request.getSession().getAttribute("nama");
+           
+            if (nama!=null) {
+                rs = pc.getByName(nama);
+            } else {
+                rs = (ResultSet)request.getAttribute("rs");
             }
-            
         %>
- 
-    <div>
+
+        <!-- Begin page content -->
+        <div>
         <h1 class="contact">History</h1>
         <div class="row background-data2">
             <div class="col-12">
                 <table>
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Nama Barang</th>
-                            <th>Jenis Barang</th>
-                            <th>Stok</th>
+                            <th>Username</th>
+                            <th>User ID</th>
+                            <th>Payment</th>
+                            <th>Product</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% while (rs.next()) {%>
                                 <tr>
-                                    <td><%= rs.getString("id")%></td>
-                                    <td><%= rs.getString("name")%></td>
-                                    <td><%= rs.getString(8)%></td>
-                                    <td><%= rs.getString("stock")%></td>
+                                    <td><%= rs.getString("IGN")%></td>
+                                    <td><%= rs.getString("UserID")%></td>
+                                    <td><%= rs.getString("Payment")%></td>
+                                    <td><%= rs.getString("Product")%></td>
                                     <td>
-                                        <form action="delete?id=<%= rs.getString("id") %>" method="POST"
+                                        <form action="delete?UserID=<%= rs.getString("UserID") %>" method="POST"
                                               onsubmit="return confirm('Are you sure want to delete the data?')"
                                         >
-                                            <a href="edit?id=<%= rs.getString("id") %>" class="btn btn-sm btn-info">Edit</a>
-                                            <input type="hidden" name="id" value="<%= rs.getString("id")%>" />
                                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                         </form>
                                         
                                     </td>
                                 </tr>
+                                <% }%>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
-
-
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
     <jsp:include page='layouts/footer.jsp'></jsp:include>
     
 </body>
