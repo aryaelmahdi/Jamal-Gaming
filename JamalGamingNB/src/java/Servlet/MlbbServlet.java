@@ -4,6 +4,8 @@
  */
 package Servlet;
 
+import Controller.ProductController;
+import Model.ProductModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -63,7 +65,34 @@ public class MlbbServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            String nama = (String)request.getSession().getAttribute("nama");
+            String username = request.getParameter("nama");
+            String uid = request.getParameter("uid");
+            String product = request.getParameter("Product");
+            String pay = request.getParameter("pay");
+
+            ProductModel model = new ProductModel();
+            model.setUsername(username);
+            model.setUid(uid);
+            model.setProduct(product);
+            model.setPay(pay);
+            
+            ProductController pc = new ProductController();
+            Boolean res = false;
+            if (nama!=null) {
+                res = pc.create(model, nama);
+            } else {
+                res = pc.create(model);
+            }
+            
+            if (res) {
+                response.sendRedirect("success");
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**

@@ -66,13 +66,9 @@ public class ValorantServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            System.out.println("a");
             String nama = (String)request.getSession().getAttribute("nama");
-            System.out.println("b");
             String username = request.getParameter("nama");
-            System.out.println("c");
             String uid = request.getParameter("uid");
-            System.out.println("d");
             String product = request.getParameter("Product");
             String pay = request.getParameter("pay");
 
@@ -84,7 +80,6 @@ public class ValorantServlet extends HttpServlet {
             
             ProductController pc = new ProductController();
             Boolean res = false;
-            System.out.println("e");
             if (nama!=null) {
                 res = pc.create(model, nama);
             } else {

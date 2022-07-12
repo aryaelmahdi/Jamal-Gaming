@@ -23,7 +23,7 @@
             <form method="POST" action="login">
                 <div class="col-12 ">
                 <p>Username</p>
-                <input type="text" class="input-submit" id="nama" placeholder="Username" name="user" required>
+                <input type="text" class="input-submit" id="nama" placeholder="Username" name="loginid" required>
             </div>
             <div class="col-12">
                 <p>Password</p>
@@ -36,11 +36,6 @@
             </div>
             </form>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
     </div>
     <jsp:include page='layouts/footer.jsp'></jsp:include>
 

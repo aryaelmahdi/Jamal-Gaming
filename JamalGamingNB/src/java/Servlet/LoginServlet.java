@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String user = request.getParameter("user");
+            String user = request.getParameter("loginid");
             String password = request.getParameter("password");
 
             UserController uc = new UserController();
@@ -90,14 +90,13 @@ public class LoginServlet extends HttpServlet {
                 Boolean isValid = password.equals(dataPassword);
                 
                 if(!isValid) {
-                    session.setAttribute("errors", "user or password is invalid!");
+                    session.setAttribute("errors", "loginid or password is invalid!");
                     response.sendRedirect("login");   
                     return;
                 }
                 
                 String name = rs.getString("nama");
-                System.out.println(name);
-                session.setAttribute("user", user);
+                session.setAttribute("loginid", user);
                 session.setAttribute("nama", name);
                 session.setAttribute("isLoggedIn", true);
 //                session.setAttribute("success", "Hello, welcome " + name + "!");
