@@ -17,7 +17,7 @@ public class DBConnection {
         
         try {
             Class.forName("com.mysql.jdbc.Driver"); // Import JDBC Driver MySQL
-            String url = "jdbc:mysql://127.0.0.1:3306/jamalgaming"; // URL dari Host Database
+            String url = "jdbc:mysql://127.0.0.1:3306/jamal"; // URL dari Host Database
             con = DriverManager.getConnection(url, "root", ""); // Host, username, password
             return con;
         } catch (Exception e) {

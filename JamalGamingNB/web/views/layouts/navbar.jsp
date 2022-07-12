@@ -14,6 +14,7 @@
                 <p><a href="#about">ABOUT</a></p>
                 <p><a href="#copyright">CONTACT</a></p>
                 <p><a href="history">HISTORY</a></p>
+                <p><a href="profile">PROFILE</a></p>
             </ul>
         </nav>
     </header>

@@ -5,8 +5,11 @@
  */
 package Controller;
 
+import Model.ProductModel;
+import Model.UserModel;
 import Query.UserQuery;
 import java.sql.ResultSet;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,12 +20,28 @@ import java.util.Map;
 public class UserController extends BaseController{
     UserQuery query = new UserQuery();
     
-    public ResultSet getByUsername(String username) {
+    public ResultSet getByUsername(String nama) {
         String sql = this.query.getByUsername;
         
         Map<Integer, Object> map = new HashMap<>();
-        map.put(1, username);
+        map.put(1, nama);
         
         return this.getWithParameter(map, sql);
+    }
+    
+    public ResultSet getusers() {
+        String sql = this.query.getusers;
+        return this.get(sql);
+    }
+
+    public boolean update(String Nama, UserModel model) throws ParseException {
+        
+        Map<Integer, Object> map = new HashMap<>();
+        map.put(1, model.getPass());
+        map.put(2, Nama);
+        
+        String sql = this.query.update;
+        
+        return this.preparedStatement(map, sql);
     }
 }

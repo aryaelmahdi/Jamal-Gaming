@@ -1,10 +1,14 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Servlet;
 
+import Controller.ProductController;
 import Controller.UserController;
+import Model.ProductModel;
+import Model.UserModel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -13,13 +17,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Wikon3
+ * @author LENOVO
  */
-public class LoginServlet extends HttpServlet {
+public class ProfileServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,14 +36,9 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            HttpSession session = request.getSession(true);
-            if (session.getAttribute("isLoggedIn") != null) {
-                response.sendRedirect("home");
-                return;
-            }
-           RequestDispatcher dispatch = request.getRequestDispatcher("/views/login.jsp");
+            RequestDispatcher dispatch = request.getRequestDispatcher("/views/profile.jsp");
             dispatch.forward(request, response);
         }
     }
@@ -57,6 +55,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        UserController model = new UserController();
+        ResultSet rs = model.getusers();
+        request.setAttribute("rs", rs);
         processRequest(request, response);
     }
 
@@ -72,41 +73,20 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String user = request.getParameter("loginid");
-            String password = request.getParameter("password");
+            String password = request.getParameter("pass");
+            String nama = (String)request.getSession().getAttribute("nama");
+            
+            UserModel model = new UserModel();
+            model.setPass(password);
+            System.out.println(password);
 
             UserController uc = new UserController();
-            ResultSet rs = uc.getByUsername(user);
+            Boolean res = uc.update(nama, model);
 
-            HttpSession session = request.getSession(true);
-            session.removeAttribute("errors");
-            
-            
-            if (rs.isBeforeFirst()) {
-                rs.first();
-                System.out.println(rs.first());
 
-                String dataPassword = rs.getString("password");
-                Boolean isValid = password.equals(dataPassword);
-                
-                if(!isValid) {
-                    session.setAttribute("errors", "loginid or password is invalid!");
-                    response.sendRedirect("login");   
-                    return;
-                }
-                
-                String name = rs.getString("nama");
-                session.setAttribute("loginid", user);
-                session.setAttribute("nama", name);
-                session.setAttribute("password", password);
-                session.setAttribute("isLoggedIn", true);
-//                session.setAttribute("success", "Hello, welcome " + name + "!");
-                
-                response.sendRedirect("home");
-            }
-            else {
-                session.setAttribute("errors", "User or password is invalid!");
-                response.sendRedirect("login");
+            if (res) {
+                System.out.println(password);
+                response.sendRedirect("logout");
             }
 
         } catch (Exception e) {

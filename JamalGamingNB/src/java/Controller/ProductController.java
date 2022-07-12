@@ -8,6 +8,7 @@ package Controller;
 import Helper.StringHelper;
 import Model.ProductModel;
 import Query.ProductQuery;
+import Query.UserQuery;
 import java.sql.ResultSet;
 import java.text.ParseException;
 import java.util.HashMap;
@@ -19,12 +20,14 @@ import java.util.Map;
  */
 public class ProductController extends BaseController {
     
+    UserQuery uq = new UserQuery();
     ProductQuery query = new ProductQuery();
     
     public ResultSet get() {
         String sql = this.query.get;
         return this.get(sql);
     }
+    
     public boolean create(ProductModel model) throws ParseException {
         Map<Integer, Object> map = new HashMap<>();
         map.put(1, model.getUsername());
@@ -66,4 +69,7 @@ public class ProductController extends BaseController {
         String sql = this.query.delete;
         return this.preparedStatement(map, sql);
     }
+    
+    ////////////////////////////////////////////////////////////////////
+    
 }
