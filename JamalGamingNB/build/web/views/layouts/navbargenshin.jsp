@@ -4,6 +4,8 @@
     Author     : Wikon3
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <header>
         <a href="home" class="title">JAMALGAMING</a>
         <h3>Genshin Impact</h3>

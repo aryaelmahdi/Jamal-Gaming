@@ -1,6 +1,6 @@
 <%-- 
-    Document   : valorant
-    Created on : Jul 4, 2022, 6:42:07 PM
+    Document   : pubgm
+    Created on : Jul 4, 2022, 7:50:06 PM
     Author     : Wikon3
 --%>
 
@@ -50,28 +50,28 @@
                             <img src="public/assets/images/uc1.png">
                             <p>500UC 100k</p>
                         </label>
-                        <input type="radio" name="Product" value="100 UC" id="x" onclick="clkvp()" required>
+                        <input type="radio" name="Product" value="500 UC" id="x" onclick="clkvp()" required>
                     </div>
                     <div class="col-3 border-pilihan" id="vps" >
                         <label for="x">
                             <img src="public/assets/images/uc1.png">
                             <p>750UC 200k</p>
                         </label> 
-                        <input type="radio" name="Product" value="250 UC" id="x" onclick="clkvp1()" required>
+                        <input type="radio" name="Product" value="750 UC" id="x" onclick="clkvp1()" required>
                     </div>
                     <div class="col-3 border-pilihan" id="vpy" >
                         <label for="x">
                             <img src="public/assets/images/uc1.png">
                             <p>1000UC 270k</p>
                         </label> 
-                        <input type="radio" name="Product" value="500 UC" id="x" onclick="clkvp2()">
+                        <input type="radio" name="Product" value="1000 UC" id="x" onclick="clkvp2()">
                     </div>
                     <div class="col-3 border-pilihan" id="vpz" >
                         <label for="x">
                             <img src="public/assets/images/uc1.png">
                             <p>1200UC 300k</p>
                         </label> 
-                        <input type="radio" name="Product" value="780 UC" id="x" onclick="clkvp3()">
+                        <input type="radio" name="Product" value="1200 UC" id="x" onclick="clkvp3()">
                     </div>
                 </div>
             </div>
@@ -87,14 +87,14 @@
                     <div class="col-3 border-pilihan" id="vps1" >
                         <label for="x">
                             <img src="public/assets/images/uc1.png">
-                            <p>2100UC 4000K</p>
+                            <p>2100UC 400K</p>
                         </label> 
                         <input type="radio" name="Product" value="2100 UC" id="x" onclick="clkvp5()">
                     </div>
                     <div class="col-3 border-pilihan" id="vpy1" >
                         <label for="x">
                             <img src="public/assets/images/uc1.png">
-                            <p>2700UC 4500K</p>
+                            <p>2700UC 450K</p>
                         </label> 
                         <input type="radio" name="Product" value="2700 UC" id="x" onclick="clkvp6()">
                     </div>
