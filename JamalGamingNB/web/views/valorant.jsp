@@ -81,8 +81,8 @@
                         <label for="x">
                             <img src="public/assets/images/VP3.png">
                             <p>1500VP 150K</p>
-                            <input type="radio" name="Product" value="1500 Valorant Points" id="x" onclick="clkvp4()">
                         </label> 
+                        <input type="radio" name="Product" value="1500 Valorant Points" id="x" onclick="clkvp4()">
                     </div>
                     <div class="col-3 border-pilihan" id="vps1" >
                         <label for="x">
@@ -130,7 +130,7 @@
                         <input type="radio" name="pay" value="gopay" id="b" onclick="gopay()">
                     </div>
                 </div>
-                <button type="submit" class="input-submit" onclick="sbmt()">submit</button>
+                <button type="submit" class="input-submit" >submit</button>
             </div>
         </div>
     </div>    

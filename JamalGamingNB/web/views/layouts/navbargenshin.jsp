@@ -4,14 +4,14 @@
     Author     : Wikon3
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<header>
+        <a href="home" class="title">JAMALGAMING</a>
+        <h3>Genshin Impact</h3>
+        <nav>
+            <ul>
+                <p><a href="#data1">Data Akun</a></p>
+                <p><a href="#data2">Pilihan</a></p>
+                <p><a href="#data3">Pembayaran</a></p>
+            </ul>
+        </nav>
+</header>

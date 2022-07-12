@@ -331,44 +331,50 @@ function gopay() {
 //    }
 }
 
-function sbmt() {
-    let uname = document.getElementById("nama").value;
-    console.log(uname.length);
-
-    let userid = document.getElementById("uid").value;
-    console.log(userid.length);
-
-    let tet = document.getElementsByClassName("border-pilihan");
-    console.log(tet);
-    try {
-        if (uname.length >= 2 && userid.length >= 6 && userid > 0) {
-            choose();
-        } else {
-            alert("Please Insert Your Data Correctly");
-        }
-
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-function choose() {
-    var pilihan = document.getElementsByClassName("border-pilihan");
-    for (i = 0; i < pilihan.length; i++) {
-        if (pilihan[i].style.backgroundColor === "rgb(139, 192, 253)") {
-            Payment();
-        } 
-    }
-    alert("Choose Your Item");
-}
-
-function Payment() {
-    var pilihan2 = document.getElementsByClassName("wkwk");
-    for (x = 0; x < pilihan2.length; x++) {
-        if (pilihan2[x].style.backgroundColor === "rgb(139, 192, 253)") {
-            location.assign("success");
-            console.log(pilihan2[x]);
-        }
-    }
-    alert("Choose Your Payment");
-}
+//function sbmt() {
+//    let uname = document.getElementById("nama").value;
+//    console.log(uname.length);
+//
+//    let userid = document.getElementById("uid").value;
+//    console.log(userid.length);
+//
+//    let tet = document.getElementsByClassName("border-pilihan");
+//    console.log(tet);
+//    try {
+//        if (uname.length >= 2 && userid.length >= 1 && userid > 0) {
+//            console.log(uname.length);
+//            console.log(userid);
+//            console.log(userid.length);
+//            choose();
+//        } else {
+//            console.log(uname.length);
+//            console.log(userid);
+//            console.log(userid.length);
+//            alert("Please Insert Your Data Correctly");
+//        }
+//
+//    } catch (error) {
+//        console.error(error);
+//    }
+//}
+//
+//function choose() {
+//    var pilihan = document.getElementsByClassName("border-pilihan");
+//    for (i = 0; i < pilihan.length; i++) {
+//        if (pilihan[i].style.backgroundColor === "rgb(139, 192, 253)") {
+//            Payment();
+//        } 
+//    }
+//    alert("Choose Your Item");
+//}
+//
+//function Payment() {
+//    var pilihan2 = document.getElementsByClassName("wkwk");
+//    for (x = 0; x < pilihan2.length; x++) {
+//        if (pilihan2[x].style.backgroundColor === "rgb(139, 192, 253)") {
+//            location.assign("success");
+//            console.log(pilihan2[x]);
+//        }
+//    }
+//    alert("Choose Your Payment");
+//}
