@@ -10,7 +10,7 @@ package Query;
  * @author LENOVO
  */
 public class UserQuery {
-    public String getByUsername = "SELECT * FROM users WHERE nama = ?";
+    public String getByUsername = "SELECT * FROM users WHERE loginid = ?";
     public String getByName = "SELECT * FROM users where nama = ?";
     public String getusers = "SELECT loginid, password FROM users where nama = ?";
     public String update = "UPDATE users SET password = ? where nama = ?";
