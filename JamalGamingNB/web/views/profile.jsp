@@ -30,22 +30,22 @@
         %>
 
     <body>
-        <jsp:include page='layouts/navbarlogin.jsp'></jsp:include>
+        <jsp:include page='layouts/navbarprofile.jsp'></jsp:include>
         <div class="col-12" id="data2">
             <form method="POST" action="profile">
                 <div class="row background-data">
-            <h2>Data Anda</h2>
-            <div class="col-12 ">
-                <p>Nama Saat ini : <%= request.getSession(true).getAttribute("nama") %></p>
+            <h1>Data Anda</h1>
+            <div class="col-12">
+                <h2>Nama Saat ini : <%= request.getSession(true).getAttribute("nama") %></h2>
             </div>
             <div class="col-12">
-                <p>Login ID Saat ini : <%= request.getSession(true).getAttribute("loginid")%></p>
+                <h2>Login ID Saat ini : <%= request.getSession(true).getAttribute("loginid")%></h2>
             </div>
             <div class="col-12">
-                <p>Password Saat ini : <%= request.getSession(true).getAttribute("password")%></p>
+                <h2>Password Saat ini : <%= request.getSession(true).getAttribute("password")%></h2>
                 <br>
-                <p>Ganti Password</p>
-                <input type="password" name="pass" class="input-submit" id="uid"   >
+                <h3>Ganti Password</h3>
+                <input type="password" name="pass" class="input-submit" id="uid" placeholder="Type Here">
             </div>
             <div class="col-12">
                 <div class="row">

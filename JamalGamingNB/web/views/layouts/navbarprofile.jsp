@@ -4,10 +4,8 @@
     Author     : LENOVO
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <header>
-        <a href="home" class="title">JAMALGAMING</a>
+        <a class="title">JAMALGAMING</a>
         <!--input type="search" name="" id="" class="input-search" placeholder="What Are You Looking For...">
         <button type="submit" class="input-submit">search</button-->
         <nav>

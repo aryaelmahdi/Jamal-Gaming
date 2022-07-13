@@ -154,3 +154,12 @@ th,
 td {
     border: 1px solid white;
 }
+
+.profile {
+    background-color: whitesmoke;
+    padding: 5%;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 10px;
+    box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
