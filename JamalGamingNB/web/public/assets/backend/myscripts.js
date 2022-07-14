@@ -341,7 +341,7 @@ function gopay() {
 //    let tet = document.getElementsByClassName("border-pilihan");
 //    console.log(tet);
 //    try {
-//        if (uname.length >= 2 && userid.length >= 1 && userid > 0) {
+//        if (userid.length >= 1 && userid > 0) {
 //            console.log(uname.length);
 //            console.log(userid);
 //            console.log(userid.length);

@@ -14,6 +14,7 @@ public class ProductModel {
     private String uid;
     private String product;
     private String pay;
+    private String id;
     
     public String getUsername() {
     return username;
@@ -45,5 +46,13 @@ public class ProductModel {
     
     public void setPay(String pay) {
         this.pay = pay;
+    }
+    
+    public String getId() {
+        return id;
+    }
+    
+    public void getId(String id){
+        this.id = id;
     }
 }

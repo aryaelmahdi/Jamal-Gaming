@@ -34,14 +34,32 @@ public class UserController extends BaseController{
         return this.get(sql);
     }
 
-    public boolean update(String Nama, UserModel model) throws ParseException {
+    public boolean update(String nama, UserModel model) throws ParseException {
         
         Map<Integer, Object> map = new HashMap<>();
         map.put(1, model.getPass());
-        map.put(2, Nama);
+        map.put(2, nama);
         
         String sql = this.query.update;
         
         return this.preparedStatement(map, sql);
     }
+    
+    public ResultSet deleteByID(String id) {
+        String sql = this.query.delete;
+        
+        Map<Integer, Object> map = new HashMap<>();
+        map.put(1, id);
+        
+        return this.getWithParameter(map, sql);
+    }
+    public ResultSet gettrans(String id) {
+        String sql = this.query.gettrans;
+        
+        Map<Integer, Object> map = new HashMap<>();
+        map.put(1, id);
+        
+        return this.getWithParameter(map, sql);
+    }
+    
 }

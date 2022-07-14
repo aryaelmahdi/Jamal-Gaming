@@ -14,4 +14,6 @@ public class UserQuery {
     public String getByName = "SELECT * FROM users where nama = ?";
     public String getusers = "SELECT loginid, password FROM users where nama = ?";
     public String update = "UPDATE users SET password = ? where nama = ?";
+    public String delete = "DELETE FROM transaction WHERE id_tr = ?";
+    public String gettrans = "SELECT * FROM transaction where UserID = ?";
 }

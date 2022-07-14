@@ -6,8 +6,10 @@
 package Servlet;
 
 import Controller.ProductController;
+import Controller.UserController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -65,7 +67,6 @@ public class DeleteServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             String id = request.getParameter("UserID");
-            
             ProductController pc = new ProductController();
             Boolean res = pc.delete(id);
 

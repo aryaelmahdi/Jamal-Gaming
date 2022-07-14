@@ -78,17 +78,18 @@ public class GenshinServlet extends HttpServlet {
             model.setProduct(product);
             model.setPay(pay);
             
+            int i = Integer.parseInt(uid);
+            
             ProductController pc = new ProductController();
             Boolean res = false;
-            if (nama!=null) {
+            if (nama!=null && i>0) {
                 res = pc.create(model, nama);
-            } else {
-                res = pc.create(model);
-            }
-            
-            if (res) {
+            } 
+            if (res  && i>0) {
+                
                 response.sendRedirect("success");
             }
+            response.sendRedirect("genshin");
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
