@@ -34,18 +34,18 @@
         <div class="col-12" id="data2">
             <form method="POST" action="profile">
                 <div class="row background-data">
-            <h1>Data Anda</h1>
-            <div class="col-12">
-                <h2>Nama Saat ini : <%= request.getSession(true).getAttribute("nama") %></h2>
+            <h2>Data Anda</h2>
+            <div class="col-12 ">
+                <p>Nama Saat ini : <%= request.getSession(true).getAttribute("nama") %></p>
             </div>
             <div class="col-12">
-                <h2>Login ID Saat ini : <%= request.getSession(true).getAttribute("loginid")%></h2>
+                <p>Login ID Saat ini : <%= request.getSession(true).getAttribute("loginid")%></p>
             </div>
             <div class="col-12">
-                <h2>Password Saat ini : <%= request.getSession(true).getAttribute("password")%></h2>
+                <p>Password Saat ini : <%= request.getSession(true).getAttribute("password")%></p>
                 <br>
-                <h3>Ganti Password</h3>
-                <input type="password" name="pass" class="input-submit" id="uid" placeholder="Type Here">
+                <p>Ganti Password</p>
+                <input type="password" name="pass" class="input-submit" id="uid"   >
             </div>
             <div class="col-12">
                 <div class="row">
